@@ -3,63 +3,70 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090b10">
+<meta name="theme-color" content="#000000">
 <title>Cavad Mikayıl — Video Dərslər</title>
 <style>
 :root{
-  --bg:#07090d;--panel:#0d1118;--panel2:#111722;--line:#202938;
-  --text:#f5f7fb;--muted:#8e9aaa;--accent:#b6ff00;--accent2:#8fe000;
+  --bg:#000;--panel:#000;--panel2:#fff;--line:#fff;
+  --text:#fff;--muted:#fff;--accent:#ffd000;--accent2:#ff8c00;
+  --black:#000;--white:#fff;--orange:#ff8c00;--yellow:#ffd000;
   --shadow:0 20px 60px rgba(0,0,0,.35);--radius:16px
+}
+:root[data-theme="light"]{
+  --bg:#fff;--panel:#fff;--panel2:#000;--line:#000;
+  --text:#000;--muted:#000;--accent:#d6a900;--accent2:#ff8c00;
+  --black:#000;--white:#fff;--orange:#ff8c00;--yellow:#ffd000;
+  --shadow:0 16px 40px rgba(0,0,0,.14)
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
 button,input{font:inherit}
 button{cursor:pointer}
 body{min-height:100vh}
-.topbar{height:70px;border-bottom:1px solid var(--line);background:rgba(7,9,13,.92);backdrop-filter:blur(14px);display:flex;align-items:center;gap:18px;padding:0 22px;position:sticky;top:0;z-index:50}
+.topbar{height:70px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.96);backdrop-filter:blur(14px);display:flex;align-items:center;gap:18px;padding:0 22px;position:sticky;top:0;z-index:50}
 .brand{display:flex;align-items:center;gap:12px;min-width:260px}
-.logo{width:38px;height:38px;border-radius:11px;background:var(--accent);color:#0a0d0b;display:grid;place-items:center;font-weight:900}
+.logo{width:38px;height:38px;border-radius:11px;background:var(--accent);color:#000;display:grid;place-items:center;font-weight:900}
 .brand strong{font-size:16px}.brand span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
 .search{flex:1;max-width:720px;position:relative}
-.search input{width:100%;height:42px;border:1px solid var(--line);border-radius:12px;background:#0c1017;color:var(--text);padding:0 44px 0 15px;outline:none}
-.search input:focus{border-color:#52621f;box-shadow:0 0 0 3px rgba(182,255,0,.07)}
+.search input{width:100%;height:42px;border:1px solid var(--line);border-radius:12px;background:var(--bg);color:var(--text);padding:0 44px 0 15px;outline:none}
+.search input:focus{border-color:#52621f;box-shadow:0 0 0 3px rgba(255,208,0,.12)}
 .search kbd{position:absolute;right:10px;top:10px;color:#687487;border:1px solid #30394a;border-radius:6px;padding:1px 6px;font-size:11px}
 .top-actions{display:flex;gap:8px;margin-left:auto}
-.iconbtn{height:40px;width:40px;border:1px solid var(--line);background:#0c1017;color:#c7cfda;border-radius:11px}
-.iconbtn:hover{border-color:#3a4658;color:#fff}
+.iconbtn{height:40px;width:40px;border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:11px}
+.iconbtn:hover{border-color:var(--accent2);color:var(--text)}
 .layout{display:grid;grid-template-columns:290px minmax(0,1fr);min-height:calc(100vh - 70px)}
-.sidebar{border-right:1px solid var(--line);background:#090c12;padding:18px 12px;position:sticky;top:70px;height:calc(100vh - 70px);overflow:auto}
-.side-title{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:#697587;padding:8px 10px 10px}
+.sidebar{border-right:1px solid var(--line);background:var(--bg);padding:18px 12px;position:sticky;top:70px;height:calc(100vh - 70px);overflow:auto}
+.side-title{font-size:11px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);padding:8px 10px 10px}
 .course-nav{display:flex;flex-direction:column;gap:4px}
-.course-btn{border:1px solid transparent;background:transparent;color:#aeb8c6;text-align:left;padding:11px 12px;border-radius:11px;display:flex;gap:10px;align-items:center}
-.course-btn:hover{background:#0f141d;color:#fff}.course-btn.active{background:#141a22;border-color:#27313f;color:#fff}
-.course-num{width:23px;height:23px;display:grid;place-items:center;border-radius:7px;background:#151c26;color:#768296;font-size:11px;flex:none}
-.course-btn.active .course-num{background:var(--accent);color:#0a0d0b;font-weight:800}
-.course-name{font-size:13px;line-height:1.3;flex:1}.course-count{font-size:10px;color:#667286}
+.course-btn{border:1px solid transparent;background:transparent;color:var(--text);text-align:left;padding:11px 12px;border-radius:11px;display:flex;gap:10px;align-items:center}
+.course-btn:hover{background:#0f141d;color:var(--text)}.course-btn.active{background:var(--bg);border-color:var(--accent2);color:var(--text)}
+.course-num{width:23px;height:23px;display:grid;place-items:center;border-radius:7px;background:var(--bg);color:var(--muted);font-size:11px;flex:none}
+.course-btn.active .course-num{background:var(--accent);color:#000;font-weight:800}
+.course-name{font-size:13px;line-height:1.3;flex:1}.course-count{font-size:10px;color:var(--muted)}
 .main{min-width:0}
-.hero{padding:30px 34px 20px;background:radial-gradient(circle at 75% 0%,rgba(182,255,0,.07),transparent 35%)}
+.hero{padding:30px 34px 20px;background:radial-gradient(circle at 75% 0%,rgba(255,208,0,.10),transparent 35%)}
 .hero-inner{max-width:1400px;margin:auto}
 .eyebrow{font-size:11px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.14em}
 h1{font-size:30px;margin:7px 0 6px;letter-spacing:-.03em}.hero p{color:var(--muted);margin:0;max-width:760px;line-height:1.6}
-.stats{display:flex;gap:18px;margin-top:18px;flex-wrap:wrap}.stat{border:1px solid var(--line);background:#0c1017;border-radius:10px;padding:8px 12px;color:#9da8b7;font-size:12px}.stat b{color:#fff}
+.stats{display:flex;gap:18px;margin-top:18px;flex-wrap:wrap}.stat{border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:8px 12px;color:var(--muted);font-size:12px}.stat b{color:var(--text)}
 .content{max-width:1400px;margin:auto;padding:0 34px 50px}
 .player-wrap{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;margin-top:10px}
-.player-card{background:#05070a;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.player-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
 .player{aspect-ratio:16/9;background:#000}.player iframe{width:100%;height:100%;border:0;display:block}
 .player-info{padding:17px 18px}.player-info h2{font-size:18px;margin:0 0 7px}.player-info .meta{font-size:12px;color:var(--muted)}
-.player-actions{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}.action{border:1px solid var(--line);background:#10151e;color:#c7cfda;padding:8px 11px;border-radius:9px;font-size:12px}.action:hover{border-color:#4a5668;color:#fff}.action.primary{background:var(--accent);color:#0a0d0b;border-color:var(--accent);font-weight:800}
-.queue{border:1px solid var(--line);background:#0b0f15;border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;max-height:calc(100% + 0px)}
+.player-actions{display:flex;gap:8px;margin-top:13px;flex-wrap:wrap}.action{border:1px solid var(--line);background:var(--bg);color:var(--text);padding:8px 11px;border-radius:9px;font-size:12px}.action:hover{border-color:var(--accent2);color:var(--text)}.action.primary{background:var(--accent);color:#000;border-color:var(--accent);font-weight:800}.action#watchedNow.primary{background:var(--orange);border-color:var(--orange)}
+.queue{border:1px solid var(--line);background:var(--bg);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;max-height:calc(100% + 0px)}
 .queue-head{padding:15px 16px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.queue-head strong{font-size:13px}.queue-head span{font-size:11px;color:var(--muted)}
-.queue-list{overflow:auto}.queue-item{display:flex;gap:10px;padding:10px;border-bottom:1px solid #171e29;background:transparent;color:#aeb8c6;text-align:left;width:100%;border-left:0;border-right:0;border-top:0}.queue-item:hover{background:#111721;color:#fff}.queue-item.active{background:#151d26;color:#fff}.thumb{width:88px;height:50px;border-radius:7px;overflow:hidden;background:#161c25;flex:none}.thumb img{width:100%;height:100%;object-fit:cover}.qtitle{font-size:11px;line-height:1.35}.qmeta{font-size:10px;color:#667286;margin-top:4px}
+.queue-list{overflow:auto}.queue-item{display:flex;gap:10px;padding:10px;border-bottom:1px solid var(--line);background:transparent;color:var(--text);text-align:left;width:100%;border-left:0;border-right:0;border-top:0}.queue-item:hover{background:var(--bg);color:var(--text)}.queue-item.active{background:var(--bg);color:var(--text)}.thumb{width:88px;height:50px;border-radius:7px;overflow:hidden;background:var(--bg);flex:none}.thumb img{width:100%;height:100%;object-fit:cover}.qtitle{font-size:11px;line-height:1.35}.qmeta{font-size:10px;color:var(--muted);margin-top:4px}
 .section-head{display:flex;align-items:end;justify-content:space-between;margin:32px 0 13px;gap:12px}.section-head h3{margin:0;font-size:17px}.section-head span{color:var(--muted);font-size:12px}
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
-.card{border:1px solid var(--line);background:#0b0f15;border-radius:13px;overflow:hidden;cursor:pointer;transition:.18s;position:relative}.card:hover{transform:translateY(-2px);border-color:#374253}.card-img{aspect-ratio:16/9;background:#151a22;position:relative}.card-img img{width:100%;height:100%;object-fit:cover;display:block}.play{position:absolute;left:10px;bottom:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(7,9,13,.85);color:var(--accent);font-size:14px}.card-body{padding:11px 12px 13px}.card-title{font-size:12px;line-height:1.42;color:#e8ebf0;min-height:34px}.card-meta{font-size:10px;color:#697587;margin-top:7px;display:flex;justify-content:space-between}.fav{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:rgba(7,9,13,.72);color:#8c97a7;z-index:2}.fav.on{color:var(--accent)}
+.card{border:1px solid var(--line);background:var(--bg);border-radius:13px;overflow:hidden;cursor:pointer;transition:.18s;position:relative}.card:hover{transform:translateY(-2px);border-color:var(--accent2)}.card-img{aspect-ratio:16/9;background:var(--bg);position:relative}.card-img img{width:100%;height:100%;object-fit:cover;display:block}.play{position:absolute;left:10px;bottom:10px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(0,0,0,.9);color:var(--accent);font-size:14px}.card-body{padding:11px 12px 13px}.card-title{font-size:12px;line-height:1.42;color:var(--text);min-height:34px}.card-meta{font-size:10px;color:var(--muted);margin-top:7px;display:flex;justify-content:space-between}.fav{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:9px;border:1px solid rgba(255,255,255,.08);background:rgba(0,0,0,.9);color:var(--muted);z-index:2}.fav.on{color:var(--accent)}
 .empty{border:1px dashed #2a3340;border-radius:13px;padding:35px;text-align:center;color:#7e8999}
 .mobile-course{display:none}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-box{width:min(760px,100%);max-height:80vh;overflow:auto;background:#0d1118;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);padding:18px}.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modal-top h3{margin:0}.close{background:transparent;border:0;color:#aab4c3;font-size:25px}
-.shortcut{color:#707b8c;font-size:12px;line-height:2}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:100;display:none;align-items:center;justify-content:center;padding:20px}.modal.show{display:flex}.modal-box{width:min(760px,100%);max-height:80vh;overflow:auto;background:var(--bg);border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow);padding:18px}.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.modal-top h3{margin:0}.close{background:transparent;border:0;color:#aab4c3;font-size:25px}
+.shortcut{color:var(--muted);font-size:12px;line-height:2}
 @media(max-width:1150px){.player-wrap{grid-template-columns:1fr}.queue{max-height:340px}.grid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{display:none}.mobile-course{display:flex;padding:13px 16px 0;overflow:auto;gap:7px}.mobile-course button{white-space:nowrap;border:1px solid var(--line);background:#0d121a;color:#aeb8c6;border-radius:9px;padding:8px 10px;font-size:11px}.mobile-course button.active{color:#0a0d0b;background:var(--accent);border-color:var(--accent);font-weight:800}.topbar{padding:0 13px}.brand{min-width:auto}.brand span{display:none}.search{max-width:none}.content,.hero{padding-left:16px;padding-right:16px}.grid{grid-template-columns:repeat(2,1fr)}h1{font-size:24px}}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{display:none}.mobile-course{display:flex;padding:13px 16px 0;overflow:auto;gap:7px}.mobile-course button{white-space:nowrap;border:1px solid var(--line);background:#0d121a;color:var(--text);border-radius:9px;padding:8px 10px;font-size:11px}.mobile-course button.active{color:#000;background:var(--accent);border-color:var(--accent);font-weight:800}.topbar{padding:0 13px}.brand{min-width:auto}.brand span{display:none}.search{max-width:none}.content,.hero{padding-left:16px;padding-right:16px}.grid{grid-template-columns:repeat(2,1fr)}h1{font-size:24px}}
 @media(max-width:560px){.topbar{height:62px}.layout{min-height:calc(100vh - 62px)}.search kbd{display:none}.brand strong{display:none}.logo{width:34px;height:34px}.hero{padding-top:22px}.grid{grid-template-columns:1fr}.stats{gap:7px}.stat{font-size:11px}.queue{max-height:280px}}
 </style>
 </head>
@@ -75,6 +82,8 @@ h1{font-size:30px;margin:7px 0 6px;letter-spacing:-.03em}.hero p{color:var(--mut
   </div>
   <div class="top-actions">
     <button class="iconbtn" id="favFilter" title="Seçilmişlər">★</button>
+    <button class="iconbtn" id="watchedFilter" title="Baxılanlar">✓</button>
+    <button class="iconbtn" id="themeBtn" title="Light / Dark mode">☼</button>
     <button class="iconbtn" id="helpBtn" title="Qısayollar">?</button>
   </div>
 </header>
@@ -97,6 +106,7 @@ h1{font-size:30px;margin:7px 0 6px;letter-spacing:-.03em}.hero p{color:var(--mut
           <div class="stat"><b id="courseStat">0</b> kurs</div>
           <div class="stat"><b id="videoStat">0</b> dərs</div>
           <div class="stat"><b id="favStat">0</b> seçilmiş</div>
+          <div class="stat"><b id="watchedStat">0</b> baxılıb</div>
         </div>
       </div>
     </section>
@@ -104,7 +114,7 @@ h1{font-size:30px;margin:7px 0 6px;letter-spacing:-.03em}.hero p{color:var(--mut
     <section class="content">
       <div class="player-wrap">
         <div class="player-card">
-          <div id="localNotice" style="display:none;padding:10px 14px;border-bottom:1px solid var(--line);background:#10151d;color:#9da8b7;font-size:12px;line-height:1.5"><b style="color:var(--accent)">Qeyd:</b> Bu HTML faylını birbaşa <code>file://</code> ilə açanda YouTube Error 153 göstərə bilər. GitHub Pages və ya başqa HTTPS host üzərindən açıldıqda embed işləyir.</div><div class="player"><iframe id="yt" src="" title="Cavad Mikayıl video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+          <div id="localNotice" style="display:none;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg);color:var(--muted);font-size:12px;line-height:1.5"><b style="color:var(--accent)">Qeyd:</b> Bu HTML faylını birbaşa <code>file://</code> ilə açanda YouTube Error 153 göstərə bilər. GitHub Pages və ya başqa HTTPS host üzərindən açıldıqda embed işləyir.</div><div class="player"><iframe id="yt" src="" title="Cavad Mikayıl video player" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
           <div class="player-info">
             <h2 id="nowTitle">Dərs seçin</h2>
             <div class="meta" id="nowMeta">Soldan kurs və ya aşağıdakı dərslərdən birini seçin.</div>
@@ -112,6 +122,7 @@ h1{font-size:30px;margin:7px 0 6px;letter-spacing:-.03em}.hero p{color:var(--mut
               <button class="action primary" id="prevBtn">← Əvvəlki</button>
               <button class="action primary" id="nextBtn">Növbəti →</button>
               <button class="action" id="favNow">☆ Seçilmişlərə əlavə et</button>
+              <button class="action" id="watchedNow">✓ Baxıldı</button>
               <button class="action" id="openYoutube">YouTube-da aç ↗</button>
             </div>
           </div>
@@ -131,6 +142,8 @@ h1{font-size:30px;margin:7px 0 6px;letter-spacing:-.03em}.hero p{color:var(--mut
     </section>
   </main>
 </div>
+
+<footer class="site-footer"><span>www.cavadmikayil.com</span><span>Cavad Mikayıl • IT Video Lessons</span></footer>
 
 <div class="modal" id="helpModal">
   <div class="modal-box">
@@ -155,7 +168,9 @@ const state = {
   current: 0,
   search: "",
   favoritesOnly: false,
+  watchedOnly: false,
   favorites: JSON.parse(localStorage.getItem("cm_favorites") || "[]"),
+  watched: JSON.parse(localStorage.getItem("cm_watched") || "[]"),
   last: JSON.parse(localStorage.getItem("cm_last") || "null")
 };
 
@@ -166,8 +181,10 @@ const thumb = id => `https://i.ytimg.com/vi/${id}/mqdefault.jpg`;
 
 function save(){
   localStorage.setItem("cm_favorites", JSON.stringify(state.favorites));
+  localStorage.setItem("cm_watched", JSON.stringify(state.watched));
   localStorage.setItem("cm_last", JSON.stringify(state.last));
   $("#favStat").textContent = state.favorites.length;
+  $("#watchedStat").textContent = state.watched.length;
 }
 
 function renderNav(){
@@ -196,7 +213,8 @@ function filteredVideos(){
     const q=state.search.trim().toLowerCase();
     const matches=!q || v.title.toLowerCase().includes(q);
     const fav=!state.favoritesOnly || state.favorites.includes(keyFor(state.course,i));
-    return matches && fav;
+    const watched=!state.watchedOnly || state.watched.includes(keyFor(state.course,i));
+    return matches && fav && watched;
   });
 }
 
@@ -211,7 +229,7 @@ function renderQueue(){
   list.forEach(({v,i})=>{
     const b=document.createElement("button");
     b.className="queue-item"+(i===state.current?" active":"");
-    b.innerHTML=`<div class="thumb"><img loading="lazy" src="${thumb(v.id)}" alt=""></div><div><div class="qtitle">${esc(v.number+". "+v.title)}</div><div class="qmeta">${state.favorites.includes(keyFor(state.course,i))?"★ Seçilmiş":"Video dərs"}</div></div>`;
+    b.innerHTML=`<div class="thumb"><img loading="lazy" src="${thumb(v.id)}" alt=""></div><div><div class="qtitle">${esc(v.number+". "+v.title)}</div><div class="qmeta">${state.watched.includes(keyFor(state.course,i))?'<span class="done">✓ Baxılıb</span>':state.favorites.includes(keyFor(state.course,i))?"★ Seçilmiş":"Video dərs"}</div></div>`;
     b.onclick=()=>playVideo(state.course,i);
     el.appendChild(b);
   });
@@ -228,7 +246,9 @@ function renderGrid(){
     const card=document.createElement("article");
     card.className="card";
     const fav=state.favorites.includes(keyFor(state.course,i));
-    card.innerHTML=`<button class="fav ${fav?"on":""}" title="Seçilmişlər">${fav?"★":"☆"}</button><div class="card-img"><img loading="lazy" src="${thumb(v.id)}" alt=""><span class="play">▶</span></div><div class="card-body"><div class="card-title">${esc(v.number+". "+v.title)}</div><div class="card-meta"><span>${esc(c.title)}</span><span>${i+1}/${c.videos.length}</span></div></div>`;
+    const watched=state.watched.includes(keyFor(state.course,i));
+    card.className="card"+(watched?" watched":"");
+    card.innerHTML=`<button class="fav ${fav?"on":""}" title="Seçilmişlər">${fav?"★":"☆"}</button>${watched?'<span class="watch-badge">✓ BAXILIB</span>':''}<div class="card-img"><img loading="lazy" src="${thumb(v.id)}" alt=""><span class="play">▶</span></div><div class="card-body"><div class="card-title">${esc(v.number+". "+v.title)}</div><div class="card-meta"><span>${esc(c.title)}</span><span>${i+1}/${c.videos.length}</span></div></div>`;
     card.onclick=()=>playVideo(state.course,i);
     card.querySelector(".fav").onclick=e=>{e.stopPropagation();toggleFav(state.course,i)};
     grid.appendChild(card);
@@ -243,6 +263,8 @@ function updatePlayer(){
   $("#nowTitle").textContent=v.number+". "+v.title;
   $("#nowMeta").textContent=`${c.title}  •  Dərs ${state.current+1} / ${c.videos.length}`;
   $("#favNow").textContent=state.favorites.includes(keyFor(state.course,state.current))?"★ Seçilmişlərdən çıxar":"☆ Seçilmişlərə əlavə et";
+  $("#watchedNow").textContent=state.watched.includes(keyFor(state.course,state.current))?"✓ Baxıldı: Bəli":"✓ Baxıldı";
+  $("#watchedNow").classList.toggle("primary",state.watched.includes(keyFor(state.course,state.current)));
   $("#openYoutube").onclick=()=>window.open(v.url,"_blank","noopener");
   $("#prevBtn").disabled=state.current<=0;
   $("#nextBtn").disabled=state.current>=c.videos.length-1;
@@ -268,6 +290,11 @@ function toggleFav(ci,vi){
   state.favorites=state.favorites.includes(k)?state.favorites.filter(x=>x!==k):[...state.favorites,k];
   save(); renderQueue(); renderGrid(); updatePlayer();
 }
+function toggleWatched(ci,vi){
+  const k=keyFor(ci,vi);
+  state.watched=state.watched.includes(k)?state.watched.filter(x=>x!==k):[...state.watched,k];
+  save(); renderQueue(); renderGrid(); updatePlayer();
+}
 
 $("#search").addEventListener("input",e=>{
   state.search=e.target.value;
@@ -275,10 +302,25 @@ $("#search").addEventListener("input",e=>{
 });
 $("#favFilter").onclick=()=>{
   state.favoritesOnly=!state.favoritesOnly;
-  $("#favFilter").style.color=state.favoritesOnly?"var(--accent)":"";
+  $("#favFilter").style.color=state.favoritesOnly?"var(--accent2)":"";
   renderQueue(); renderGrid();
 };
+$("#watchedFilter").onclick=()=>{
+  state.watchedOnly=!state.watchedOnly;
+  $("#watchedFilter").style.color=state.watchedOnly?"var(--accent2)":"";
+  renderQueue(); renderGrid();
+};
+function applyTheme(){
+  const theme=localStorage.getItem("cm_theme")||"dark";
+  document.documentElement.dataset.theme=theme;
+  $("#themeBtn").textContent=theme==="dark"?"☼":"☾";
+}
+$("#themeBtn").onclick=()=>{
+  const next=document.documentElement.dataset.theme==="dark"?"light":"dark";
+  localStorage.setItem("cm_theme",next); applyTheme();
+};
 $("#favNow").onclick=()=>toggleFav(state.course,state.current);
+$("#watchedNow").onclick=()=>toggleWatched(state.course,state.current);
 $("#prevBtn").onclick=()=>{if(state.current>0)playVideo(state.course,state.current-1)};
 $("#nextBtn").onclick=()=>{if(state.current<COURSES[state.course].videos.length-1)playVideo(state.course,state.current+1)};
 $("#helpBtn").onclick=()=>$("#helpModal").classList.add("show");
@@ -296,6 +338,7 @@ document.addEventListener("keydown",e=>{
 
 if(location.protocol==="file:") $("#localNotice").style.display="block";
 
+applyTheme();
 $("#courseStat").textContent=TOTAL_COURSES;
 $("#videoStat").textContent=TOTAL_VIDEOS;
 
